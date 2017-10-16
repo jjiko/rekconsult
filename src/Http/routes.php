@@ -7,5 +7,5 @@ Route::name('home')->get('/', function () {
 Route::post('/', function(){
   Mail::to('joejiko@gmail.com')
     ->send(new Rek\Mail\ContactMessage(request()->input()));
-  return redirect()->route('home');
+  return redirect('/');
 });
