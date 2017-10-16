@@ -30,6 +30,8 @@ class ContactMessage extends Mailable
      */
     public function build()
     {
-        return $this->view('rek::emails.contact');
+        return $this
+          ->from('contact@rekconsult.com')
+          ->view('rek::emails.contact');
     }
 }

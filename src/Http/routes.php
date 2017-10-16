@@ -6,6 +6,5 @@ Route::get('/', function () {
 
 Route::post('/', function(){
   Mail::to('joejiko@gmail.com')
-    ->from('contact@rekconsult.com')
     ->send(new Rek\Mail\ContactMessage(request()->input()));
 });
