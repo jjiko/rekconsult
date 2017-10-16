@@ -1,3 +1,13 @@
+@if(isset($mailSent))
+    <div class="row" style="margin-top: 2rem">
+        <div class="col">
+            <div class="alert alert-success">
+                <h4 class="alert-heading">Thank you!</h4>
+                <p>Your inquiry has been sent to us.</p>
+            </div>
+        </div>
+    </div>
+@endif
 <div class="row" style="margin-top: 4rem">
     <div class="col-12 col-md-4">
         <h3 style="line-height:1.5">Take a bold stride into the future with automation and accountability.</h3>
