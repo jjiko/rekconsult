@@ -12,7 +12,7 @@
     <div class="col-12 col-md-4">
         <h3 style="line-height:1.5">Take a bold stride into the future with automation and accountability.</h3>
     </div>
-    <div class="col-12 col-md-8">
+    <div class="col-12 col-md-8" style="margin-bottom: 2rem;">
         <section id="contact">
             <form method="post">
                 <input name="fromUrl" type="hidden" value="{{ request()->url() }}">
