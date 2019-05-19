@@ -1,0 +1,33 @@
+version: "3.6"
+services:
+  app:
+    image: jiko/laravel-base
+    volumes:
+      -./src:/var/www/rekconsult
+  php-fpm:
+    image: jiko/laravel-php-fpm
+    volumes:
+      -./src:/var/www/rekconsult
+  webserver:
+    image: webdevops/apache:ubuntu-18.04
+    expose:
+      - "80"
+    volumes:
+      - -./src:/var/www/rekconsult
+      - ./.docker/apache/conf.d/vhost.conf:/opt/docker/etc/httpd/conf.d/20-vhost.conf
+    environment:
+      - WEB_PHP_SOCKET=php-fpm:9000
+      - WEB_DOCUMENT_ROOT=/var/www/
+      - WEB_PHP_TIMEOUT=60
+    depends_on:
+      - php-fpm
+    networks:
+      - frontend
+      - backend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=jiko_frontend"
+      - "traefik.backend=rek-http-server"
+      - "traefik.frontend.rule=Host:rekconsult.com,local.rekconsult.com"
+      - "traefik.port=80"
+
